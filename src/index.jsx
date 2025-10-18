@@ -165,7 +165,7 @@ export default function JakieToUbranieQuiz({ questionsCount = 10 }) {
         <section className="bg-white rounded-lg p-4 shadow">
           <p className="mb-2">Na obrazku widzisz ubranie lub akcesorium:</p>
           <div className="border rounded overflow-hidden mb-4">
-            <img src={current.src} alt={`Obraz ${currentIndex + 1}`} className="w-full h-64 object-cover" />
+            <img src={current.src} alt={`Obraz ${currentIndex + 1}`} className="w-full h-96 object-cover" />
           </div>
 
           <div className="mb-3">
