@@ -137,11 +137,11 @@ export default function JakieToUbranieQuiz({ questionsCount = 10 }) {
   }
 
   const kindOptions = useMemo(
-    () => buildOptions(current.kind, CLOTHING_KINDS),
+    () => current ? buildOptions(current.kind, CLOTHING_KINDS) : [],
     [currentIndex, selectedImages]
   );
   const colorOptions = useMemo(
-    () => buildOptions(current.color, COLORS),
+    () => current ? buildOptions(current.color, COLORS) : [],
     [currentIndex, selectedImages]
   );
 
@@ -274,7 +274,7 @@ export default function JakieToUbranieQuiz({ questionsCount = 10 }) {
         </aside>
       </main>
 
-      <footer className="mt-6 text-sm text-gray-600">Powodzenia! Możesz podmienić IMAGE_POOL, dodać więcej zdjęć lub zmienić liczbę pytań.</footer>
+      <footer className="mt-6 text-sm text-gray-600">Powodzenia!</footer>
     </div>
   );
 }
