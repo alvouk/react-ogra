@@ -91,11 +91,13 @@ export default function JakieToUbranieQuiz({ questionsCount = 10 }) {
   const [selectedColor, setSelectedColor] = useState(null);
   const [answered, setAnswered] = useState(false);
   const [hideContent, setHideContent] = useState(false);
+  const [isCorrect, setIsCorrect] = useState(false);
 
   useEffect(() => {
     setSelectedKind(null);
     setSelectedColor(null);
     setAnswered(false);
+    setIsCorrect(false);
   }, [currentIndex]);
 
   if (selectedImages.length === 0) {
@@ -131,6 +133,7 @@ export default function JakieToUbranieQuiz({ questionsCount = 10 }) {
     const correctColor = selectedColor === current.color;
     const points = correctKind && correctColor ? 1 : 0;
     if (points === 1) setScore((s) => s + 1);
+    setIsCorrect(points === 1);
     setAnswered(true);
   }
 
@@ -164,7 +167,7 @@ export default function JakieToUbranieQuiz({ questionsCount = 10 }) {
       <main className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
         <section className="bg-white rounded-lg p-4 shadow">
           <p className="mb-2">Na obrazku widzisz ubranie lub akcesorium:</p>
-          <div className="border rounded overflow-hidden mb-4">
+          <div className={`border rounded overflow-hidden mb-4 ${answered ? (isCorrect ? 'border-green-500 border-4' : 'border-red-500 border-4') : ''}`}>
             <img src={current.src} alt={`Obraz ${currentIndex + 1}`} className="w-full h-96 object-cover" />
           </div>
 
@@ -175,7 +178,7 @@ export default function JakieToUbranieQuiz({ questionsCount = 10 }) {
                 onChange={(e) => setHideContent(e.target.checked)}
                 className="rounded"
               />
-              <span className="text-sm">Ukryj treść przycisków</span>
+              <span className="text-sm items-center">Ukryj treść przycisków (hard mode dla PC)</span>
             </label>
             <p className="font-medium">Wybierz rodzaj:</p>
             <div className="flex flex-wrap gap-2 mt-2">
@@ -183,7 +186,7 @@ export default function JakieToUbranieQuiz({ questionsCount = 10 }) {
                 <button
                   key={k}
                   onClick={() => !answered && setSelectedKind(k)}
-                  className={`px-3 py-2 rounded border flex-1 min-w-0 text-sm ${selectedKind === k ? "ring-2 ring-offset-2" : ""} ${hideContent ? "hover:opacity-100 opacity-0 transition-opacity" : ""}`}
+                  className={`px-3 py-2 rounded border flex-1 min-w-0 text-xs ${selectedKind === k ? "ring-2 ring-offset-2" : ""} ${hideContent ? "hover:opacity-100 opacity-0 transition-opacity" : ""}`}
                   aria-pressed={selectedKind === k}
                 >
                   {k}
@@ -199,7 +202,7 @@ export default function JakieToUbranieQuiz({ questionsCount = 10 }) {
                 <button
                   key={c}
                   onClick={() => !answered && setSelectedColor(c)}
-                  className={`px-3 py-2 rounded border flex-1 min-w-0 text-sm ${selectedColor === c ? "ring-2 ring-offset-2" : ""} ${hideContent ? "hover:opacity-100 opacity-0 transition-opacity" : ""}`}
+                  className={`px-3 py-2 rounded border flex-1 min-w-0 text-xs ${selectedColor === c ? "ring-2 ring-offset-2" : ""} ${hideContent ? "hover:opacity-100 opacity-0 transition-opacity" : ""}`}
                   aria-pressed={selectedColor === c}
                 >
                   {c}
