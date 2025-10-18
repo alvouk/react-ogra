@@ -1,6 +1,8 @@
 services:
   app:
     build: .
+    environment:
+      - ALLOWED_HOST=${ALLOWED_HOST}
     ports:
       - "3000:3000"
     volumes:

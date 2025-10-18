@@ -6,6 +6,6 @@ export default defineConfig({
   server: {
     host: '0.0.0.0',
     port: 3000,
-    allowedHosts: ['ubrania.vouk.dev']
+    allowedHosts: [process.env.ALLOWED_HOST || 'localhost' ]
   }
 })
