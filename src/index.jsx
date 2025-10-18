@@ -1,11 +1,7 @@
 import React, { useState, useEffect, useMemo } from "react";
-
-// Jakie to ubranie? — React single-file component
-// -------------------------------
-// Wersja rozszerzona o akcesoria odzieżowe.
+import { IMAGE_POOL } from './imagePool.js';
 
 const CLOTHING_KINDS = [
-  // Ubrania
   "koszula",
   "żakiet",
   "bluza",
@@ -23,7 +19,6 @@ const CLOTHING_KINDS = [
   "legginsy",
   "kombinezon",
   "piżama",
-  // Dodatki / akcesoria
   "szalik",
   "czapka",
   "rękawiczki",
@@ -40,6 +35,18 @@ const CLOTHING_KINDS = [
   "bransoletka",
   "zegarek",
   "portfel",
+  "fartuch lekarski",
+  "stetoskop",
+  "rękawice lateksowe",
+  "czepek chirurgiczny",
+  "maska medyczna",
+  "body dziecięce",
+  "śpioszki",
+  "buciki dziecięce",
+  "czapeczka dziecięca",
+  "śliniak",
+  "kamizelka odblaskowa",
+  "fartuch sklepowy",
 ];
 
 const COLORS = [
@@ -59,36 +66,7 @@ const COLORS = [
   "srebrny",
 ];
 
-// Przykładowa pula obrazków (rozszerzona o akcesoria)
-const IMAGE_POOL = [
-  { src: "/images/1.jpg", kind: "koszula", color: "czerwony" },
-  { src: "/images/2.jpg", kind: "bluza", color: "niebieski" },
-  { src: "/images/3.jpg", kind: "sukienka", color: "zielony" },
-  { src: "/images/4.jpg", kind: "spódnica", color: "czarny" },
-  { src: "/images/5.jpg", kind: "żakiet", color: "biały" },
-  { src: "/images/6.jpg", kind: "spodnie", color: "żółty" },
-  { src: "/images/7.jpg", kind: "sweter", color: "szary" },
-  { src: "/images/8.jpg", kind: "T-shirt", color: "różowy" },
-  { src: "/images/9.jpg", kind: "kurtka", color: "brązowy" },
-  { src: "/images/10.jpg", kind: "marynarka", color: "fioletowy" },
-  { src: "/images/11.jpg", kind: "kamizelka", color: "beżowy" },
-  { src: "/images/12.jpg", kind: "płaszcz", color: "czarny" },
-  { src: "/images/13.jpg", kind: "czapka", color: "zielony" },
-  { src: "/images/14.jpg", kind: "rękawiczki", color: "czerwony" },
-  { src: "/images/15.jpg", kind: "buty", color: "brązowy" },
-  { src: "/images/16.jpg", kind: "szalik", color: "niebieski" },
-  { src: "/images/17.jpg", kind: "kapelusz", color: "beżowy" },
-  { src: "/images/18.jpg", kind: "krawat", color: "fioletowy" },
-  { src: "/images/19.jpg", kind: "torebka", color: "różowy" },
-  { src: "/images/20.jpg", kind: "plecak", color: "zielony" },
-  { src: "/images/21.jpg", kind: "pasek", color: "czarny" },
-  { src: "/images/22.jpg", kind: "okulary przeciwsłoneczne", color: "srebrny" },
-  { src: "/images/23.jpg", kind: "naszyjnik", color: "złoty" },
-  { src: "/images/24.jpg", kind: "bransoletka", color: "złoty" },
-  { src: "/images/25.jpg", kind: "kolczyki", color: "srebrny" },
-  { src: "/images/26.jpg", kind: "zegarek", color: "czarny" },
-  { src: "/images/27.jpg", kind: "portfel", color: "brązowy" },
-];
+
 
 function shuffleArray(arr) {
   const copy = arr.slice();
