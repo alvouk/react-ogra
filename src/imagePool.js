@@ -8,7 +8,7 @@ export const IMAGE_POOL = [
   { src: "/images/7.jpg", kind: "sweter", color: "szary" },
   { src: "/images/8.jpg", kind: "T-shirt", color: "różowy" },
   { src: "/images/9.jpg", kind: "kurtka", color: "brązowy" },
-  { src: "/images/10.jpg", kind: "marynarka", color: "fioletowy" },
+  { src: "/images/10.jpg", kind: "garnitur", color: "fioletowy" },
   { src: "/images/11.jpg", kind: "kamizelka", color: "beżowy" },
   { src: "/images/12.jpg", kind: "płaszcz", color: "czarny" },
   { src: "/images/13.jpg", kind: "czapka", color: "zielony" },

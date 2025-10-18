@@ -9,6 +9,7 @@ const CLOTHING_KINDS = [
   "spodnie",
   "sukienka",
   "spódnica",
+  "garnitur",
   "kurtka",
   "sweter",
   "T-shirt",
@@ -139,11 +140,7 @@ export default function JakieToUbranieQuiz({ questionsCount = 10 }) {
   }
 
   function restart() {
-    setScore(0);
-    setCurrentIndex(0);
-    setSelectedKind(null);
-    setSelectedColor(null);
-    setAnswered(false);
+    window.location.reload();
   }
 
   if (currentIndex >= selectedImages.length) {
