@@ -18,7 +18,7 @@ export const IMAGE_POOL = [
   { src: "/images/17.jpg", kind: "kapelusz", color: "beżowy" },
   { src: "/images/18.jpg", kind: "krawat", color: "fioletowy" },
   { src: "/images/19.jpg", kind: "torebka", color: "różowy" },
-  { src: "/images/20.jpg", kind: "plecak", color: "zielony" },
+  { src: "/images/20.png", kind: "plecak", color: "zielony" },
   { src: "/images/21.jpg", kind: "pasek", color: "czarny" },
   { src: "/images/22.jpg", kind: "okulary przeciwsłoneczne", color: "srebrny" },
   { src: "/images/23.jpg", kind: "naszyjnik", color: "złoty" },
