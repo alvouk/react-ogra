@@ -90,6 +90,7 @@ export default function JakieToUbranieQuiz({ questionsCount = 10 }) {
   const [selectedKind, setSelectedKind] = useState(null);
   const [selectedColor, setSelectedColor] = useState(null);
   const [answered, setAnswered] = useState(false);
+  const [hideContent, setHideContent] = useState(false);
 
   useEffect(() => {
     setSelectedKind(null);
@@ -168,13 +169,21 @@ export default function JakieToUbranieQuiz({ questionsCount = 10 }) {
           </div>
 
           <div className="mb-3">
+            <label className="flex items-center gap-2 mb-2">
+              <input 
+                type="checkbox" 
+                onChange={(e) => setHideContent(e.target.checked)}
+                className="rounded"
+              />
+              <span className="text-sm">Ukryj treść przycisków</span>
+            </label>
             <p className="font-medium">Wybierz rodzaj:</p>
             <div className="flex flex-wrap gap-2 mt-2">
               {kindOptions.map((k) => (
                 <button
                   key={k}
                   onClick={() => !answered && setSelectedKind(k)}
-                  className={`px-3 py-2 rounded border ${selectedKind === k ? "ring-2 ring-offset-2" : ""}`}
+                  className={`px-3 py-2 rounded border flex-1 min-w-0 text-sm ${selectedKind === k ? "ring-2 ring-offset-2" : ""} ${hideContent ? "hover:opacity-100 opacity-0 transition-opacity" : ""}`}
                   aria-pressed={selectedKind === k}
                 >
                   {k}
@@ -190,7 +199,7 @@ export default function JakieToUbranieQuiz({ questionsCount = 10 }) {
                 <button
                   key={c}
                   onClick={() => !answered && setSelectedColor(c)}
-                  className={`px-3 py-2 rounded border ${selectedColor === c ? "ring-2 ring-offset-2" : ""}`}
+                  className={`px-3 py-2 rounded border flex-1 min-w-0 text-sm ${selectedColor === c ? "ring-2 ring-offset-2" : ""} ${hideContent ? "hover:opacity-100 opacity-0 transition-opacity" : ""}`}
                   aria-pressed={selectedColor === c}
                 >
                   {c}
