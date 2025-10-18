@@ -17,7 +17,7 @@ npm run dev
 
 ## Access
 - Local: http://localhost:3000
-- Production: https://vouk.dev/ubrania/
+- Production: https://ubrania.vouk.dev/
 
 ## Configuration
 Edit `src/imagePool.js` to modify quiz items and images.
