@@ -38,4 +38,5 @@ export const IMAGE_POOL = [
   { src: "/images/37.jpg", kind: "śliniak", color: "pomarańczowy" },
   { src: "/images/38.jpg", kind: "kamizelka odblaskowa", color: "pomarańczowy" },
   { src: "/images/39.jpg", kind: "fartuch sklepowy", color: "niebieski" },
+  { src: "/images/40.jpg", kind: "bluzka ", color: "czerwona" },
 ];
